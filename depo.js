@@ -25,15 +25,37 @@ document.getElementById('deposit-button').addEventListener('click', function () 
     balanceTotal.innerText = newBalanceTotal;
 
 
-
-
-
-
-
-
-
-
-
     depositInput.value = '';
 
 });
+
+//  widthraw handler
+
+document.getElementById('withdraw-button').addEventListener('click', function () {
+
+    // console.log('button clicked');
+    const withdrawInput = document.getElementById('withdraw-amount');
+    const withdrawText = withdrawInput.value;
+    const withdrawAmount = parseFloat(withdrawText);
+    // console.log(withdrawAmount);
+    currentWithdraw = document.getElementById('withdraw-total');
+    const currentWithdrawText = currentWithdraw.innerText;
+    const currentWithdrawAmount = parseFloat(currentWithdrawText);
+    const newtotalWidthraw = currentWithdrawAmount + withdrawAmount;
+
+
+
+    currentWithdraw.innerText = newtotalWidthraw;
+
+    // new balance 
+
+    const balanceTotal = document.getElementById('balance-total');
+    const balanceTotalText = balanceTotal.innerText;
+    const balanceTotalAmount = parseFloat(balanceTotalText);
+    const newBalanceTotal = balanceTotalAmount - withdrawAmount;
+
+    balanceTotal.innerText = newBalanceTotal;
+
+    withdrawInput.value = '';
+
+})
